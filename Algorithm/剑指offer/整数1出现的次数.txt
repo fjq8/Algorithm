@@ -1,0 +1,18 @@
+public class Solution {
+    public int NumberOf1Between1AndN_Solution(int n) {
+        if(n < 0) return 0;
+        int res=0;
+        for(int i=1; i<=n; i++){
+            res += count(i);
+        }
+        return res;
+    }
+    public static int count(int n){
+        int c=0;
+        while(n != 0){
+            c = (n%10==1) ? ++c:c;
+            n = n/10;
+        }
+        return c;
+    }
+}

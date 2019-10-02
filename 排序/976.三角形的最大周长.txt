@@ -1,0 +1,17 @@
+class Solution {
+    public int largestPerimeter(int[] A) {
+       if (A == null){
+         return 0;
+      }
+      Arrays.sort(A);
+      for (int i=A.length-3; i>=0; i--){
+         if(A[i]+A[i+1] > A[i+2]){
+            return A[i]+A[i+1]+A[i+2];
+         }
+      }
+      return 0;
+    }
+}
+不失一般性的，我们假设三角形的边长满足 a \leq b \leq ca≤b≤c。那么这三条边组成三角形的面积非零的充分必要条件是 a + b > ca+b>c。
+
+再假设我们已经知道 cc 的长度了，我们没有理由不从数组中选择尽可能大的 aa 与 bb。因为当且仅当 a + b > ca+b>c 的时候，它们才能组成一个三角形。

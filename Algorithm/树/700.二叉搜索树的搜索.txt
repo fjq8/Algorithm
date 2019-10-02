@@ -1,0 +1,35 @@
+class Solution {
+    public TreeNode searchBST(TreeNode root, int val) {
+        if(root==null){
+            return root;
+        }
+        if(val == root.val)return root;
+        if(val < root.val)return searchBST(root.left,val);
+        else return searchBST(root.right,val);
+    }
+}
+
+
+class Solution {
+    public TreeNode searchBST(TreeNode root, int val) {
+        if (root == null){
+            return null;
+        }
+        else if (root.val == val){
+            return root;
+        }
+        else if (root.val < val){
+            if (root.right != null){
+                return searchBST(root.right,val);
+            }
+            return null;
+        }
+        else if (root.val > val){
+            if (root.left != null){
+                return searchBST(root.left,val);
+            }
+            return null;
+        }
+        return null;
+    }
+}

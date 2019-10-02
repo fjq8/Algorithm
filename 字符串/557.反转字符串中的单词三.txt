@@ -1,0 +1,17 @@
+class Solution {
+    public String reverseWords(String s) {
+        Stack<Character> stack = new Stack<>();
+        StringBuilder sb = new StringBuilder();
+        String word[] = s.split(" ");
+        for(String w :word){
+            for(int i=0; i<w.length(); i++){
+                stack.push(w.charAt(i));
+            }
+            for(int i=0; i<w.length(); i++){
+                sb.append(stack.pop());
+            }
+            sb.append(" ");
+        }
+        return sb.deleteCharAt(sb.length()-1).toString();
+    }
+}

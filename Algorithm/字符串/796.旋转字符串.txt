@@ -1,0 +1,27 @@
+class Solution {
+    public boolean rotateString(String A, String B) {
+      int i=0,l=A.length();
+		StringBuffer sb = new StringBuffer(A);
+		if(A.length() != B.length()) {
+			return false;
+		}
+		
+		
+	    if(A.equals(B)) {
+	    	return true;
+	    } 
+		i=0;
+	    while(i <= l-1) {
+	    	if(sb.toString().equals(B)) {
+	        	return true;
+	        } 
+	    	else {
+	    		sb.append(sb.charAt(0));
+	    		sb.deleteCharAt(0);
+	    		
+	       	}
+	    	i++;
+	    }
+		return false;
+    }
+}

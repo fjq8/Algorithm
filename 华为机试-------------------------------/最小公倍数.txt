@@ -1,0 +1,25 @@
+import java.util.Scanner;
+ 
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Scanner re = new Scanner(System.in);
+        while(re.hasNext())
+        {
+            int m = re.nextInt();
+            int n = re.nextInt();
+            System.out.println(Answer(m, n));
+        }
+    }   
+    public static int Answer(int a ,int b)
+     { 
+        int i;
+        for(i=a; ; i++)
+        {
+          if((i%a==0)&&(i%b==0))
+              break;
+        }
+        return i;
+      }
+}

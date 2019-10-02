@@ -1,0 +1,9 @@
+class Solution {
+public:
+    bool canWinNim(int n) {
+        if(n%4 != 0) return true;
+        return false;
+    }
+};
+
+//如果n除开四  那么永远是输

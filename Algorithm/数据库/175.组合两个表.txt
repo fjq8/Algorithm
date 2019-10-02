@@ -1,0 +1,6 @@
+/* Write your PL/SQL query statement below */
+select FirstName, LastName, City, State
+from Person left  join Address
+on Person.PersonId = Address.PersonId;
+
+left join（左连接）是 left outer join的简写，返回左表中所有记录和右表中连接字段相等的记录，即返回的记录数和左表的记录数一样。

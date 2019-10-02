@@ -1,0 +1,13 @@
+class Solution {
+    public int trailingZeroes(int n) {
+        int count=0;
+		while(n>0)
+	    {
+	        count+=n/5;  
+	        n/=5;
+	    }
+	    return count;
+    }
+}
+
+/*思想：n有多少个5的因子，那么就会产生多少个零；因为5！会出现一个0*/

@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+
+public class Solution {
+    public String PrintMinNumber(int [] aa) {
+        int i,j;
+        int l = aa.length;
+        String str ="";
+        for(i=0; i<l; i++){
+            for(j=i+1; j<l; j++){
+                int a = Integer.valueOf(aa[i]+""+aa[j]);
+                int b = Integer.valueOf(aa[j]+""+aa[i]);
+                if(a > b){
+                    int t = aa[i];      	//将大的和小的进行交换
+                    aa[i] = aa[j];
+                    aa[j] = t;
+                }
+            }
+        }
+        for(i=0; i<l; i++){
+            str += aa[i];
+        }
+        return String.valueOf(str);
+    }
+}

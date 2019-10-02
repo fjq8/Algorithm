@@ -1,0 +1,16 @@
+import java.util.LinkedList;
+public class Solution {
+    public int LastRemaining_Solution(int n, int m) {
+        LinkedList <Integer> list = new LinkedList<>();
+        int i,a=0;
+        for(i=0; i<n; i++){
+            list.add(i);
+        }
+        while(list.size() > 1){
+            a = (a+m-1)%list.size();
+            list.remove(a);
+        }
+        if(list.size() == 1) return list.get(0);
+        return -1;
+    }
+}

@@ -1,0 +1,40 @@
+class Solution {
+    public ListNode mergeTwoLists(ListNode a, ListNode b) {
+        
+        ListNode curr=null;
+       if(a == null){
+            return b;
+        }else if(b == null){
+            return a;
+        }
+        if(a.val < b.val){
+            curr = a;
+            a = a.next;
+        }else{
+            curr = b;
+            b = b.next;
+        }
+   
+    
+        
+        ListNode c = curr;
+        while(a != null && b!= null){
+            if(a.val < b.val){
+                c.next = a;
+               
+                a = a.next;
+            }else{
+                 c.next = b;
+               
+                 b = b.next;
+            }
+            c = c.next;
+        }
+        if(a == null){
+            c.next = b;
+        }else if(b == null){
+            c.next = a;
+        }
+        return curr;
+    }
+}

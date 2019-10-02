@@ -1,0 +1,34 @@
+/*
+public class TreeNode {
+    int val = 0;
+    TreeNode left = null;
+    TreeNode right = null;
+
+    public TreeNode(int val) {
+        this.val = val;
+
+    }
+
+}
+*/
+import java.util.ArrayList;
+public class Solution {
+    ArrayList<TreeNode> list = new ArrayList<>();
+    TreeNode KthNode(TreeNode pRoot, int k)
+    {
+        maked(pRoot);
+        if(k>=1 && list.size()>=k){
+            return list.get(k-1);
+        }
+        return null;
+    }
+    void maked(TreeNode curr){
+        if(curr != null){
+            maked(curr.left);
+            list.add(curr);
+            maked(curr.right);
+        }
+    }
+
+
+}

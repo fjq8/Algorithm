@@ -1,0 +1,22 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        if(nums.length==1){
+            return nums[0];
+        }
+        Arrays.sort(nums);
+        int i,zs = 0;
+		int t=nums[0],count=1;                        
+													
+		for(i=1; i<nums.length; i++) {
+			if(t == nums[i]) {
+				count++;
+			}else {
+				count--;
+				if(count == 0) {
+					t = nums[i+1];
+				}
+			}
+		}
+		return t;
+    }
+}

@@ -1,0 +1,18 @@
+class Solution {
+    public int[] sortArrayByParityII(int[] A) {
+        int index=0;
+        int index2=1;
+        int i;
+        int []B = new int [A.length];
+        for(i=0; i<A.length; i++){
+            if(A[i] % 2 == 0){  //偶数
+                B[index] = A[i];
+                index += 2;
+            }else if(A[i] % 2 != 0){//奇数
+                B[index2] = A[i];
+                index2 += 2;
+            }
+        }
+        return B;
+    }
+}

@@ -1,0 +1,16 @@
+class Solution {
+    public String defangIPaddr(String a) {
+        int i;
+		StringBuilder  sb = new StringBuilder (a);
+		for (i = 0; i < sb.length(); i++) {
+            if (sb.charAt(i) == '.') {
+                sb.insert(i + 1, ']');// 先插入后面,此时i下标仍是'.';
+                sb.insert(i, '[');// 插入前'.'前面,此时i下标是'[' ,i+2为']';
+                i = i + 3;// 故i直接+3,为下一个字符
+            }
+        }
+
+
+		return sb.toString();
+    }
+}

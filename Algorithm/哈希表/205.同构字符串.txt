@@ -1,0 +1,23 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        Map<Character,Character> map = new HashMap<Character,Character>();
+        
+        for(int i=0; i<s.length(); i++){
+            char ss = s.charAt(i);
+            char tt = t.charAt(i);
+            if(map.containsKey(ss)){
+                if(map.get(ss)!=tt){
+                    return false;
+                }
+            }else{
+                if(map.containsValue(tt)) return false;
+                map.put(ss,tt);
+            }
+            
+        }
+        return true;
+        
+    }
+}
+
+//在哈希表中构造，让两个字符串的每个字符一一对应

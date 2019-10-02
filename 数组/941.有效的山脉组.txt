@@ -1,0 +1,20 @@
+class Solution {
+    public boolean validMountainArray(int[] A) {
+      int len=A.length;
+        if(len<3) return false;
+        int mid=0;
+        for (int i=1;i<len;i++)
+        {
+            if(A[i]<A[i-1]){mid=i-1;break;}
+                else if(A[i]==A[i-1]) return false;
+        }
+        if(mid==0||mid==len-1)
+            return false;
+        for (int i = mid; i < len-1; i++) {
+            if(A[i]<=A[i+1]) return false;
+
+        }
+        return true;
+
+    }
+}

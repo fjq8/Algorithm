@@ -1,0 +1,36 @@
+public class Solution {
+    public int StrToInt(String str) {
+        if (str == null || str.length() == 0) {
+            return 0;
+        }
+        int len = str.length();
+        int i=0,result=0;
+        boolean fuhao = false;
+        if(len > 0){
+            char firstchar = str.charAt(0);
+            if(firstchar == '-'){
+                fuhao = true;
+                i++;
+            }else if(firstchar == '+'){
+                i++;
+            }else if(firstchar>'9' || firstchar<'0'){
+                return 0;
+            }else if(len == 1){
+                return 0;
+            }
+            while(i < len){
+                if(str.charAt(i)>='0' && str.charAt(i)<='9'){
+                    int digit = str.charAt(i++) - '0';
+                    result *= 10;
+                    result += digit;
+                 
+                }else{
+                    return 0;
+                }
+            }
+            return fuhao ? -result : result;
+        }else{
+            return 0;
+        }
+    }
+}

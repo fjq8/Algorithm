@@ -1,0 +1,28 @@
+class Solution {
+    public boolean wordPattern(String pattern, String str) {
+        String []w = str.split(" ");
+        Map<String,Character> ps = new HashMap<String, Character>();
+        Map<Character,String> rs = new HashMap<Character,String>();
+        if(w.length != pattern.length()) return false;
+
+        for(int i=0; i<pattern.length(); i++){
+            char c = pattern.charAt(i);
+            String word = w[i];
+            if(!rs.containsKey(c)){
+                rs.put(c,word);
+            }else if (!rs.get(c).equals(word)){
+                return false;
+            }
+
+            if(!ps.containsKey(word)){
+                ps.put(word,c);
+            }else if (!ps.get(word).equals(c)){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+//本题实际是求pattern每个字符和str中每个单词是否是一一对应关系（注意是双向），遍历str中的word，使用两个Map分别记录当前pattern中
+的字符和word的对应关系，如果出现了不同对应关系则返回false。

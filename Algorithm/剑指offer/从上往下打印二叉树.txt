@@ -1,0 +1,15 @@
+public class Solution {
+    public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
+        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<TreeNode> q = new ArrayList<>();
+        if(root == null) return list;
+        q.add(root);
+        while(q.size() != 0){
+            TreeNode tmp = q.remove(0);
+            if(tmp.left != null) q.add(tmp.left);
+            if(tmp.right != null) q.add(tmp.right);
+            list.add(tmp.val);
+        }
+        return list;
+    }
+}

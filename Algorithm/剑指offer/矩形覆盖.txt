@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int rectCover(int n) {
+        if(n <= 0) return 0;
+        if(n == 1 || n==2)return n;
+        else{
+            return rectCover(n-1) + rectCover(n-2);
+        }
+        
+    }
+};
+
+在分析前不知道是什么序列，所以先看了n=1，n=2，n=3，n=4的情况摸索规律，主要是看 n 和 n-1 的隐含联系。（2*1 指 长宽）
+1-1
+2-2
+3-3
+4-5

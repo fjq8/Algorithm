@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+public class Solution {
+   public ArrayList<Integer> printMatrix(int [][] matrix) {
+       ArrayList<Integer> resultList = new ArrayList<>();
+       int cols = matrix[0].length;
+       int rows = matrix.length;    
+       int left=0,top=0,bottom=rows-1,right=cols-1;
+       int count = 0;//计数，count如果达到数组的全部个数，那么结束。
+       while(count < cols*rows)
+       {
+           for(int i=left;i<=right;i++)//从左往右进行遍历，第一层
+           {//left是目前最左边的那个边界，right是目前最右边的边界
+               resultList.add(matrix[top][i]);
+               count++;
+               if(count >= cols*rows)
+                   return resultList;
+           }
+           top++;//遍历完目前的最顶层，那么top就到下一层
+           for(int i=top;i<=bottom;i++)
+           {//从上往下进行遍历，top是目前最上的边界，bottom是目前最下的边界
+               resultList.add(matrix[i][right]);
+               count++;
+               if(count >= cols*rows)
+                   return resultList;
+           }
+           right--;//遍历完最右边的边界，那么right就减一，到下一个最右边边界
+           for(int i=right;i>=left;i--)
+           {//从右到左，和上面同理
+               resultList.add(matrix[bottom][i]);
+               count++;
+               if(count >= cols*rows)
+                   return resultList;
+           }
+           bottom--;
+           for(int i=bottom;i>=top;i--)
+           {//从下到上，和上面同理。
+               resultList.add(matrix[i][left]);
+               count++;
+               if(count >= cols*rows)
+                   return resultList;
+           }
+           left++;
+       }
+       return resultList;
+   }
+}

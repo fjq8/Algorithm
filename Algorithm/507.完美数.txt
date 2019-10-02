@@ -1,0 +1,27 @@
+class Solution {
+    public boolean checkPerfectNumber(int num) {
+        if(num == 1){
+         return false;
+      }
+      int sum=1;
+      int i=2;
+      Double target = Math.sqrt(num);
+      for (;i<target; i++){
+         if (num % i == 0){
+            sum += i;
+            sum += num/i;
+         }
+      }
+      if(i * i == num) {
+         sum += i;
+      }
+
+      return sum==num;
+    }
+}
+
+首先由于完美数的定义，需要排除自身，所以数字1一定不是完美数
+其次我们需要计算num除了它自身以外的所有正因子之和sum，正因子必然是成对出现的，故而我们只需要遍历到num的平方根sqrt即可
+以36为例，它的非自身外正因子有，1、2、3、4、6、9、12、18，其中1和6单独计算，[2, 18]、[3, 12]、[4, 9]都是对应关系、
+所以只需要遍历到36的平方根6就可以获取全部正因子
+1单独计算的原因是要排除自身，6单独计算的原因是 6 * 6 = 36，两个值相同，故而只能计算一遍

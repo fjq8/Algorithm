@@ -1,0 +1,26 @@
+class Solution {
+    public int repeatedNTimes(int[] A) {
+         HashSet<Integer> set = new HashSet<Integer>();
+        int i;
+        for(i=0; i<A.length; i++){
+
+            if(set.contains(A[i])){
+                return A[i];
+            }
+            set.add(A[i]);
+        }
+        return 0;
+        
+    }
+}
+
+******************************************************************
+class Solution {
+    public int repeatedNTimes(int[] A) {
+        HashSet<Integer> m = new HashSet<>();
+        for(int i : A)
+            if(m.contains(i))return i;
+            else m.add(i);
+        return 0;
+    }
+}

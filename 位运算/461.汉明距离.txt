@@ -1,0 +1,13 @@
+class Solution {
+    public int hammingDistance(int x, int y) {
+        y = x ^ y;
+        int count=0;
+        while(y != 0){
+            y &= y-1;
+            count++;
+        }
+        return count;
+    }
+}
+
+//两个二进制数进行异或，不同位异或将会产生1，所以只需要数出有多少个1就ok；

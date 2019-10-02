@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String []args){
+        Scanner in = new Scanner(System.in);
+        while(in.hasNext()){
+            String s = new String(in.nextLine());
+            int len = s.length();
+            if(len %8 != 0){
+                s = s+"00000000";
+            }
+            while(s.length() >= 8){
+                System.out.println(s.substring(0,8));
+                s = s.substring(8);
+            }
+        }
+    }
+}

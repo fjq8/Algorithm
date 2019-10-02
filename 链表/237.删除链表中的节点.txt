@@ -1,0 +1,16 @@
+class Solution {
+    
+public void deleteNode(ListNode node) {
+ 
+        //将node节点的值被下一个节点的值覆盖掉
+
+        node.val = node.next.val;
+        
+       
+ //再将node指针域覆盖掉
+        
+node.next = node.next.next;
+   
+ }
+
+}

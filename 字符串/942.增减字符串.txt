@@ -1,0 +1,19 @@
+class Solution {
+    public int[] diStringMatch(String S) {
+        int N = S.length();
+        int f=0,l=N,i;
+        int []ans = new int[N+1];
+        for(i=0; i<N; i++){
+            if(S.charAt(i) == 'I'){
+                ans[i] = f;
+                f++;
+            }else{
+                ans[i] = l;
+                l--;
+            }
+        }
+        ans[N] = f;
+        return ans;
+    }
+    
+}

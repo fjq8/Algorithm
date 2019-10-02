@@ -1,0 +1,10 @@
+class Solution {
+    public int[] countBits(int num) {
+        int []bit = new int[num+1];
+        
+        for(int i=1; i<bit.length; i++){
+            bit[i] = bit[i&(i-1)]+1;
+        }
+        return bit;
+    }
+}

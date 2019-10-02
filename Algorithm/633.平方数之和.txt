@@ -1,0 +1,10 @@
+public boolean judgeSquareSum(int c) {
+         int b = (int) Math.sqrt(c), a = 0;
+	while(a <= b){
+	    int sum = a*a + b*b;
+	    if(sum == c) return true;
+	    else if(sum > c) b--;
+	    else a++;
+	}
+	return false;
+    }
