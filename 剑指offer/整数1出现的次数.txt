@@ -10,7 +10,7 @@ public class Solution {
     public static int count(int n){
         int c=0;
         while(n != 0){
-            c = (n%10==1) ? ++c:c;
+            c = (n%10==1) ? ++c:c;  //判断
             n = n/10;
         }
         return c;
